@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio BUT GEII de MAHMOUD Nahïl - compétences, projets et stage">
+  <title>Accueil | Portfolio GEII - MAHMOUD Nahïl</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Portfolio MAHMOUD Nahïl</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li class="has-submenu">
+          <a href="apprentissages.html">Apprentissages</a>
+          <ul class="submenu">
+            <li><a href="apprentissages.html#c1">C1 · Concevoir</a></li>
+            <li><a href="apprentissages.html#c2">C2 · Vérifier</a></li>
+            <li><a href="apprentissages.html#c3">C3 · Maintenir</a></li>
+            <li><a href="apprentissages.html#c4">C4 · Implanter</a></li>
+          </ul>
+        </li>
+        <li><a href="projets.html">Vidéo</a></li>
+        <li><a href="stage.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero-subtitle">Étudiant en BUT 3 Génie Électrique et Informatique Industrielle</p>
+      <h1>Portfolio MAHMOUD Nahïl</h1>
+      <p class="hero-parcours">Parcours <strong>Electronique et Systèmes Embarqués (ESE)</strong> - IUT Nord Franche Comté</p>
+
+      <p class="hero-intro">Bienvenue sur mon portfolio. Vous y trouverez la présentation de mon parcours en BUT Génie Électrique et Informatique Industrielle, ainsi que les preuves de mon acquisition des quatre compétences du diplôme : Concevoir, Vérifier, Maintenir et Implanter. Chaque quart de la roue ci-dessous correspond à une compétence et mène à ses apprentissages critiques, détaillés et illustrés par mes réalisations.</p>
+
+      <figure class="wheel">
+        <svg class="wheel-svg" viewBox="0 0 400 400" role="group" aria-label="Les 4 compétences du BUT GEII">
+          <a class="quarter q1" href="apprentissages.html#c1" aria-label="Compétence Concevoir">
+            <path d="M200 200 L200 30 A170 170 0 0 1 370 200 Z"/>
+            <text class="label-code" x="272" y="128">C1</text>
+            <text class="label-name" x="272" y="128">Concevoir</text>
+          </a>
+          <a class="quarter q2" href="apprentissages.html#c2" aria-label="Compétence Vérifier">
+            <path d="M200 200 L370 200 A170 170 0 0 1 200 370 Z"/>
+            <text class="label-code" x="272" y="272">C2</text>
+            <text class="label-name" x="272" y="272">Vérifier</text>
+          </a>
+          <a class="quarter q3" href="apprentissages.html#c3" aria-label="Compétence Maintenir">
+            <path d="M200 200 L200 370 A170 170 0 0 1 30 200 Z"/>
+            <text class="label-code" x="128" y="272">C3</text>
+            <text class="label-name" x="128" y="272">Maintenir</text>
+          </a>
+          <a class="quarter q4" href="apprentissages.html#c4" aria-label="Compétence Implanter">
+            <path d="M200 200 L30 200 A170 170 0 0 1 200 30 Z"/>
+            <text class="label-code" x="128" y="128">C4</text>
+            <text class="label-name" x="128" y="128">Implanter</text>
+          </a>
+          <g class="wheel-hub" aria-hidden="true">
+            <circle cx="200" cy="200" r="38"/>
+            <text x="200" y="200">GEII</text>
+          </g>
+        </svg>
+        <figcaption class="wheel-hint">Survolez un quart pour découvrir la compétence, cliquez pour y accéder.</figcaption>
+      </figure>
+
+      <div class="hero-buttons">
+        <a href="projets.html" class="btn btn-primary">Mes projets</a>
+        <a href="docs/cv.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <h2>Projets à la une</h2>
+      <div class="cards-grid">
+        <article class="card project-card">
+          <img src="img/projet1.jpg" alt="Aperçu du projet 1">
+          <h3>Titre du projet 1</h3>
+          <p>Courte description (contexte, objectif, résultat).</p>
+          <ul class="tags"><li>Concevoir</li><li>Implanter</li></ul>
+          <a href="projets.html#video" class="card-link">En savoir plus →</a>
+        </article>
+        <article class="card project-card">
+          <img src="img/projet2.jpg" alt="Aperçu du projet 2">
+          <h3>Titre du projet 2</h3>
+          <p>Courte description.</p>
+          <ul class="tags"><li>Vérifier</li></ul>
+          <a href="projets.html#video" class="card-link">En savoir plus →</a>
+        </article>
+        <article class="card project-card">
+          <img src="img/projet3.jpg" alt="Aperçu du projet 3">
+          <h3>Titre du projet 3</h3>
+          <p>Courte description.</p>
+          <ul class="tags"><li>Maintenir</li></ul>
+          <a href="projets.html#video" class="card-link">En savoir plus →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 MAHMOUD Nahïl - Portfolio BUT GEII - IUT Nord Franche Comté</p>
+    <ul class="footer-links">
+      <li><a href="mailto:3b.mahmoud@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/ton-profil" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Ouvre le menu déroulant ciblé par l'ancre (#c1 à #c4)
+    function openFromHash() {
+      try {
+        const el = location.hash && document.querySelector(location.hash);
+        if (el && el.tagName === 'DETAILS') { el.open = true; }
+      } catch (e) {}
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    // Compteur d'AC acquis par compétence + boutons déplier / replier
+    document.querySelectorAll('.competence-acc').forEach(d => {
+      const total = d.querySelectorAll('.ac-row').length;
+      const done = d.querySelectorAll('.status-acquis').length;
+      const c = d.querySelector('.acc-count');
+      if (c) c.textContent = done + ' / ' + total + ' acquis';
+      d.style.setProperty('--progress', (total ? done / total * 100 : 0) + '%');
+    });
+    document.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => {
+      const open = b.dataset.acc === 'open';
+      document.querySelectorAll('.competence-acc').forEach(d => { d.open = open; });
+    }));
+  </script>
+</body>
+</html>

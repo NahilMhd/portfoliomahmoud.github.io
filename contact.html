@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Portfolio GEII - MAHMOUD Nahïl</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Portfolio MAHMOUD Nahïl</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li class="has-submenu">
+          <a href="apprentissages.html">Apprentissages</a>
+          <ul class="submenu">
+            <li><a href="apprentissages.html#c1">C1 · Concevoir</a></li>
+            <li><a href="apprentissages.html#c2">C2 · Vérifier</a></li>
+            <li><a href="apprentissages.html#c3">C3 · Maintenir</a></li>
+            <li><a href="apprentissages.html#c4">C4 · Implanter</a></li>
+          </ul>
+        </li>
+        <li><a href="projets.html">Vidéo</a></li>
+        <li><a href="stage.html">CV</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-title">
+      <h1>Me contacter</h1>
+    </section>
+
+    <section class="section two-columns">
+      <div>
+        <h2>Coordonnées</h2>
+        <ul class="info-list">
+          <li>📧 <a href="mailto:3b.mahmoud@gmail.com">3b.mahmoud@gmail.com</a></li>
+          <li>📞 06 00 00 00 00</li>
+          <li>📍 [Ville], France</li>
+          <li>💼 <a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li>💻 <a href="https://github.com/ton-profil" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+        <p><a href="docs/cv.pdf" class="btn btn-primary" download>Télécharger mon CV</a></p>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/xxxxxxx" method="POST">
+        <h2>Envoyer un message</h2>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="sujet">Sujet</label>
+        <input type="text" id="sujet" name="sujet">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 MAHMOUD Nahïl - Portfolio BUT GEII - IUT Nord Franche Comté</p>
+    <ul class="footer-links">
+      <li><a href="mailto:3b.mahmoud@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/ton-profil" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Ouvre le menu déroulant ciblé par l'ancre (#c1 à #c4)
+    function openFromHash() {
+      try {
+        const el = location.hash && document.querySelector(location.hash);
+        if (el && el.tagName === 'DETAILS') { el.open = true; }
+      } catch (e) {}
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    // Compteur d'AC acquis par compétence + boutons déplier / replier
+    document.querySelectorAll('.competence-acc').forEach(d => {
+      const total = d.querySelectorAll('.ac-row').length;
+      const done = d.querySelectorAll('.status-acquis').length;
+      const c = d.querySelector('.acc-count');
+      if (c) c.textContent = done + ' / ' + total + ' acquis';
+      d.style.setProperty('--progress', (total ? done / total * 100 : 0) + '%');
+    });
+    document.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => {
+      const open = b.dataset.acc === 'open';
+      document.querySelectorAll('.competence-acc').forEach(d => { d.open = open; });
+    }));
+  </script>
+</body>
+</html>

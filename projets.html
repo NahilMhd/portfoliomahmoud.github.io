@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidéo | Portfolio GEII - MAHMOUD Nahïl</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Portfolio MAHMOUD Nahïl</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li class="has-submenu">
+          <a href="apprentissages.html">Apprentissages</a>
+          <ul class="submenu">
+            <li><a href="apprentissages.html#c1">C1 · Concevoir</a></li>
+            <li><a href="apprentissages.html#c2">C2 · Vérifier</a></li>
+            <li><a href="apprentissages.html#c3">C3 · Maintenir</a></li>
+            <li><a href="apprentissages.html#c4">C4 · Implanter</a></li>
+          </ul>
+        </li>
+        <li><a href="projets.html" class="active">Vidéo</a></li>
+        <li><a href="stage.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-title">
+      <h1>Vidéo</h1>
+      <p>Ma vidéo de présentation : parcours, projets et compétences.</p>
+    </section>
+
+    <section class="section" id="video">
+      <h2>Vidéo de présentation</h2>
+      <div class="video-wrapper">
+        <video controls preload="metadata" poster="img/video-poster.jpg">
+          <source src="video/presentation.mp4" type="video/mp4">
+          <p>Votre navigateur ne lit pas la vidéo. <a href="video/presentation.mp4">Télécharger la vidéo</a>.</p>
+        </video>
+      </div>
+      <p class="video-caption">Durée : X min · Format : MP4</p>
+      <!-- Variante YouTube / Vimeo : remplacer le bloc <video> ci-dessus par
+           <iframe src="https://www.youtube.com/embed/ID_DE_LA_VIDEO" title="Vidéo de présentation" allowfullscreen loading="lazy"></iframe> -->
+
+      <h3>Chapitres</h3>
+      <ol class="chapters">
+        <li><span class="chapter-time">00:00</span> Présentation et parcours</li>
+        <li><span class="chapter-time">01:00</span> Projet 1 : titre</li>
+        <li><span class="chapter-time">03:00</span> Projet 2 : titre</li>
+        <li><span class="chapter-time">05:00</span> Stage et conclusion</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 MAHMOUD Nahïl - Portfolio BUT GEII - IUT Nord Franche Comté</p>
+    <ul class="footer-links">
+      <li><a href="mailto:3b.mahmoud@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/ton-profil" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Ouvre le menu déroulant ciblé par l'ancre (#c1 à #c4)
+    function openFromHash() {
+      try {
+        const el = location.hash && document.querySelector(location.hash);
+        if (el && el.tagName === 'DETAILS') { el.open = true; }
+      } catch (e) {}
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    // Compteur d'AC acquis par compétence + boutons déplier / replier
+    document.querySelectorAll('.competence-acc').forEach(d => {
+      const total = d.querySelectorAll('.ac-row').length;
+      const done = d.querySelectorAll('.status-acquis').length;
+      const c = d.querySelector('.acc-count');
+      if (c) c.textContent = done + ' / ' + total + ' acquis';
+      d.style.setProperty('--progress', (total ? done / total * 100 : 0) + '%');
+    });
+    document.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => {
+      const open = b.dataset.acc === 'open';
+      document.querySelectorAll('.competence-acc').forEach(d => { d.open = open; });
+    }));
+  </script>
+</body>
+</html>

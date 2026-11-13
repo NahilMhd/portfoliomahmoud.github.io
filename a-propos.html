@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos | Portfolio GEII - MAHMOUD Nahïl</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Portfolio MAHMOUD Nahïl</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html" class="active">À propos</a></li>
+        <li class="has-submenu">
+          <a href="apprentissages.html">Apprentissages</a>
+          <ul class="submenu">
+            <li><a href="apprentissages.html#c1">C1 · Concevoir</a></li>
+            <li><a href="apprentissages.html#c2">C2 · Vérifier</a></li>
+            <li><a href="apprentissages.html#c3">C3 · Maintenir</a></li>
+            <li><a href="apprentissages.html#c4">C4 · Implanter</a></li>
+          </ul>
+        </li>
+        <li><a href="projets.html">Vidéo</a></li>
+        <li><a href="stage.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-title">
+      <h1>À propos de moi</h1>
+    </section>
+
+    <section class="section two-columns">
+      <figure>
+        <img src="img/photo-profil.jpg" alt="Portrait de MAHMOUD Nahïl">
+      </figure>
+      <div>
+        <h2>Présentation</h2>
+        <p>Texte de présentation : parcours, motivations, centres d'intérêt dans le domaine du génie électrique et de l'informatique industrielle.</p>
+        <h3>Mon projet professionnel</h3>
+        <p>Poursuite d'études (école d'ingénieurs, licence pro…) ou insertion professionnelle, secteur visé.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <h2>Parcours</h2>
+      <ol class="timeline">
+        <li><span class="timeline-date">2024 - 2025</span><h3>BUT 1 GEII</h3><p>Description courte.</p></li>
+        <li><span class="timeline-date">2025 - 2026</span><h3>BUT 2 GEII</h3><p>Description courte.</p></li>
+        <li><span class="timeline-date">2026 - 2027</span><h3>BUT 3 GEII - Parcours [X]</h3><p>Description courte.</p></li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Savoir-faire techniques</h2>
+      <div class="skills-columns">
+        <div><h3>Électronique</h3><ul><li>Conception de cartes (KiCad / Altium)</li><li>Instrumentation</li></ul></div>
+        <div><h3>Informatique industrielle</h3><ul><li>C / C++</li><li>Microcontrôleurs</li><li>Python</li></ul></div>
+        <div><h3>Automatisme</h3><ul><li>API (TIA Portal, …)</li><li>Supervision</li></ul></div>
+        <div><h3>Langues &amp; outils</h3><ul><li>Anglais : niveau B2</li><li>Git, Office…</li></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 MAHMOUD Nahïl - Portfolio BUT GEII - IUT Nord Franche Comté</p>
+    <ul class="footer-links">
+      <li><a href="mailto:3b.mahmoud@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/ton-profil" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Ouvre le menu déroulant ciblé par l'ancre (#c1 à #c4)
+    function openFromHash() {
+      try {
+        const el = location.hash && document.querySelector(location.hash);
+        if (el && el.tagName === 'DETAILS') { el.open = true; }
+      } catch (e) {}
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+
+    // Compteur d'AC acquis par compétence + boutons déplier / replier
+    document.querySelectorAll('.competence-acc').forEach(d => {
+      const total = d.querySelectorAll('.ac-row').length;
+      const done = d.querySelectorAll('.status-acquis').length;
+      const c = d.querySelector('.acc-count');
+      if (c) c.textContent = done + ' / ' + total + ' acquis';
+      d.style.setProperty('--progress', (total ? done / total * 100 : 0) + '%');
+    });
+    document.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => {
+      const open = b.dataset.acc === 'open';
+      document.querySelectorAll('.competence-acc').forEach(d => { d.open = open; });
+    }));
+  </script>
+</body>
+</html>
